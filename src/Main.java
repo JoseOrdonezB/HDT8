@@ -11,9 +11,9 @@ public class Main {
 
         try (Stream<String> lines = Files.lines(Paths.get("procesos.txt"))) {
             lines.map(line -> line.split(","))
-                 .filter(processData -> processData.length == 3)
-                 .map(processData -> new Process(processData[0], processData[1], Integer.parseInt(processData[2])))
-                 .forEach(processQueue::add);
+                    .filter(processData -> processData.length == 3)
+                    .map(processData -> new Process(processData[0], processData[1], Integer.parseInt(processData[2])))
+                    .forEach(processQueue::add);
         } catch (IOException e) {
             e.printStackTrace();
         }
